@@ -1,7 +1,7 @@
 <?php
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\User;
+use AppBundle\Entity\Merchant;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -9,30 +9,31 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 
-class UserController extends Controller
+class MerchantController extends Controller
 {
     /**
-     * @Route("/users", name="users_list")
+     * @Route("/merchants", name="merchants_list")
      * @Method({"GET"})
      */
-    public function getUsersAction(Request $request)
+    public function getMerchantsAction(Request $request)
     {
 
-        $users = $this->get('doctrine.orm.entity_manager')
-            ->getRepository('AppBundle:User')
+        $merchants = $this->get('doctrine.orm.entity_manager')
+            ->getRepository('AppBundle:Merchant')
             ->findAll();
-        /* @var $users User[] */
+        /* @var $merchants Merchant[] */
 
 
-        $AllUsers = [];
-        foreach ($users as $user) {
-            $AllUsers[] = [
+        $AllMerchants = [];
+        foreach ($merchants as $user) {
+            $AllMerchants[] = [
                 'id' => $user->getId(),
                 'name' => $user->getName(),
+
             ];
         }
 
-        return new JsonResponse($AllUsers);
+        return new JsonResponse($AllMerchants);
 
     }
 
