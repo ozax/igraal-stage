@@ -2,6 +2,8 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
+
+
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -27,10 +29,11 @@ class UserController extends Controller
         $AllUsers = [];
         foreach ($users as $user) {
             $AllUsers[] = [
-                'id' => $user->getId(),
                 'name' => $user->getName(),
             ];
         }
+
+
 
         return new JsonResponse($AllUsers);
 

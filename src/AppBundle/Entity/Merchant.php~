@@ -1,14 +1,20 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Reda
+ * Date: 15/12/2017
+ * Time: 13:38
+ */
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity()
- * @ORM\Table(name="user")
+ * @ORM\Table(name="merchant")
  */
 
-class User
+class Merchant
 {
 
     /**
@@ -34,19 +40,4 @@ class User
         return $this->name;
     }
 
-
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return User
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
 }

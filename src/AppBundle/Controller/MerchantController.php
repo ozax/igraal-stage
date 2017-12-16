@@ -27,7 +27,6 @@ class MerchantController extends Controller
         $AllMerchants = [];
         foreach ($merchants as $user) {
             $AllMerchants[] = [
-                'id' => $user->getId(),
                 'name' => $user->getName(),
 
             ];

@@ -40,4 +40,18 @@ class Merchant
         return $this->name;
     }
 
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Merchant
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
 }

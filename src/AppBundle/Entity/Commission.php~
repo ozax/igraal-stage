@@ -57,32 +57,4 @@ protected $cashback;
     }
 
 
-
-    /**
-     * Set date
-     *
-     * @param \DateTime $date
-     *
-     * @return Commission
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    /**
-     * Set cashback
-     *
-     * @param string $cashback
-     *
-     * @return Commission
-     */
-    public function setCashback($cashback)
-    {
-        $this->cashback = $cashback;
-
-        return $this;
-    }
 }

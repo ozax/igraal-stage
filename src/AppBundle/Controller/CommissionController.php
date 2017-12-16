@@ -8,7 +8,6 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Commission;
-use AppBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -34,9 +33,9 @@ class CommissionController extends Controller
         $AllCommissions = [];
         foreach ($commissions as $commission) {
             $AllCommissions[] = [
-                'id' => $commission->getId(),
                 'date'=> $commission->getDate(),
-               'cashback' =>$commission->getCashBack()
+               'cashback' =>$commission->getCashBack(),
+
 
             ];
         }
