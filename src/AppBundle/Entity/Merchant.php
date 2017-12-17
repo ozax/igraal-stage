@@ -1,44 +1,33 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Reda
- * Date: 15/12/2017
- * Time: 13:38
- */
+
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity()
+ * Merchant
+ *
  * @ORM\Table(name="merchant")
+ * @ORM\Entity
  */
-
 class Merchant
 {
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
+     */
+    private $name;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    protected $id;
+    private $id;
 
-    /**
-     * @ORM\Column(type="string")
-     */
-    protected $name;
-
-
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function getName()
-    {
-        return $this->name;
-    }
 
 
     /**
@@ -53,5 +42,25 @@ class Merchant
         $this->name = $name;
 
         return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

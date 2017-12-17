@@ -1,60 +1,60 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Reda
- * Date: 15/12/2017
- * Time: 14:03
- */
 
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-
 /**
- * @ORM\Entity()
- * @ORM\Table(name="commission")
+ * Commission
+ *
+ * @ORM\Table(name="commission", indexes={@ORM\Index(name="idMerchant", columns={"idMerchant"}), @ORM\Index(name="idUser", columns={"idUser"})})
+ * @ORM\Entity
  */
-
 class Commission
 {
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime", nullable=false)
+     */
+    private $date;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="cashback", type="decimal", precision=10, scale=2, nullable=false)
+     */
+    private $cashback;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    protected $id;
+    private $id;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @var \AppBundle\Entity\Merchant
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Merchant")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idMerchant", referencedColumnName="id")
+     * })
      */
-    protected $date;
+    private $idmerchant;
 
     /**
-     * @ORM\Column(type="decimal")
+     * @var \AppBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="idUser", referencedColumnName="id")
+     * })
      */
-protected $cashback;
-
-
-
-
-    public function getId()
-    {
-        return $this->id;
-    }
-    
-
-    public function getDate()
-    {
-        return $this->date;
-    }
-
-    public  function getCashBack()
-    {
-        return $this->cashback;
-
-    }
+    private $iduser;
 
 
 }
+
