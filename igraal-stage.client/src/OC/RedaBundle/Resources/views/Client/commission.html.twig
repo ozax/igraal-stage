@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bienvenue sur mon test de Stage !</title>
+</head>
+<body>
+<h1>Bienvenu sur Igraal</h1>
+
+<p>
+
+
+    {% for objet in obj %}
+
+       L'utilisateur {{ objet.name }} a fais ses achats sur {{ objet.merchant }} et a recu {{ objet.cashback }}
+
+
+        {% if not loop.last %}<br>{% endif %}
+    {% endfor %}
+
+
+</p>
+</body>
+</html>

@@ -1,0 +1,17 @@
+
+
+
+
+
+view_users:
+    path:     /users
+    defaults: { _controller: OCRedaBundle:Users:user }
+
+
+view_commissions:
+    path:     /commission
+    defaults: { _controller: OCRedaBundle:Commission:commission }
+
+
+
+

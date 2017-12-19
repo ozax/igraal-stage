@@ -33,10 +33,10 @@ class CommissionController extends Controller
         $AllCommissions = [];
         foreach ($commissions as $commission) {
             $AllCommissions[] = [
-                $commission->getIduser()->getName(),
-                 $commission->getIdmerchant()->getName(),
-                 $commission->getCashBack(),
-                $commission->getDate(),
+               'name'=> $commission->getIduser()->getName(),
+                'merchant'=> $commission->getIdmerchant()->getName(),
+                'cashback'=> $commission->getCashBack(),
+                'date'=> $commission->getDate(),
 
 
 
