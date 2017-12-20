@@ -26,26 +26,23 @@ class CommissionController extends Controller
         $repository = $this
             ->getDoctrine()
             ->getManager()
-            ->getRepository('AppBundle:Commission')
-        ;
+            ->getRepository('AppBundle:Commission');
         $commissions = $repository->findByiduser($user_id);
 
         $AllCommissions = [];
         foreach ($commissions as $commission) {
             $AllCommissions[] = [
-               'name'=> $commission->getIduser()->getName(),
-                'merchant'=> $commission->getIdmerchant()->getName(),
-                'cashback'=> $commission->getCashBack(),
-                'date'=> $commission->getDate(),
-
-
+                'name' => $commission->getIduser()->getName(),
+                'merchant' => $commission->getIdmerchant()->getName(),
+                'cashback' => $commission->getCashBack(),
+                'date' => $commission->getDate(),
 
 
             ];
         }
 
+
         return new JsonResponse($AllCommissions);
 
     }
-
 }

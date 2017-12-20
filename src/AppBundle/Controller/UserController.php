@@ -36,7 +36,9 @@ class UserController extends Controller
         $AllUsers = [];
         foreach ($users as $user) {
             $AllUsers[] = [
-                'name' => $user->getName(),
+                'id'=> $user->getId(),
+                'name'=>$user->getName()
+
             ];
         }
 
