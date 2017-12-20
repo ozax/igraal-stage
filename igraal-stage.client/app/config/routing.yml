@@ -1,5 +1,0 @@
-oc_reda:
-    resource: "@OCRedaBundle/Resources/config/routing.yml"
-    prefix:   /
-
-
