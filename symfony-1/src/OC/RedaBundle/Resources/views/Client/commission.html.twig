@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bienvenue sur mon Test de Stage !</title>
+
+
+    <link rel="stylesheet" href="{{ asset('/css/bootstrap.css') }}" type="text/css" />
+
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">
+        <img src="{{ asset('/images/logo.png') }}" />
+
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="https://fr.igraal.com/">Vers le site iGraal <span class="sr-only"></span></a>
+            </li>
+
+        </ul>
+
+    </div>
+</nav>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1 h1 class="display-3">Bienvenue sur la plateforme igraal</h1>
+
+    </div>
+</div>
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row" >
+        <div class="col-md-8 align-content-md-center">
+            <div class="table table-bordered " >
+                <table class="table table-bordered">
+
+                    <tr>
+                        <td>Nom client </td>
+                        <td>Merchant </td>
+                        <td>Cashback</td>
+                        <td>Date</td>
+
+                    </tr>
+                    {% for objet in obj %}
+                    <tr>
+                        <td>
+                            {{ objet.name }}
+                        </td>
+                        <td>
+                            {{ objet.merchant }}
+                        </td>
+                        <td>
+                            {{ objet.cashback }}
+                        </td>
+                        <td>
+                            {{ objet.date.date|date("m/d/Y")  }}
+                        </td>
+
+
+                    {% endfor %}
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+</div> <!-- /container -->
+
+</body>
+
+
+
+<script type="text/javascript" src="{{ 'js/bootstrap.js' }}"></script>
+</html>
